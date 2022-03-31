@@ -33,7 +33,6 @@ numbers.forEach((number) => {
     }
     inputNumber(event.target.value);
     updateScreen(currentNumber);
-    console.log(event.target.value);
   });
 });
 
@@ -55,19 +54,19 @@ const inputOperator = (operator) => {
 };
 let isDone = false;
 
-equalSign.addEventListener('click', (event) => {
+equalSign.addEventListener('click', () => {
   calculate();
   updateScreen(currentNumber);
   isDone = true;
-  console.log('calculate done');
 });
 
 modeBtn.addEventListener('click', () => {
   icon.classList.toggle('fa-sun-o');
   icon.classList.toggle('white');
   icon.classList.toggle('fa-moon-o');
-
-  bodyCalc.classList.toggle('dark');
+  bodyCalc.classList.toggle('dark-body');
+  bodyCalc.classList.toggle('light-body');
+  document.documentElement.classList.toggle('dark');
 });
 
 const calculate = () => {
@@ -113,7 +112,6 @@ const inputPercentage = () => {
 percentage.addEventListener('click', (event) => {
   inputPercentage(event.target.value);
   updateScreen(currentNumber);
-  console.log(parseFloat(currentNumber));
 });
 
 decimal.addEventListener('click', (event) => {
